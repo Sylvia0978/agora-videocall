@@ -11,14 +11,14 @@ import {
 } from "agora-rtc-react";
 
 // Insert your Agora App ID below!
-const appId = "YOUR_AGORA_APP_ID";
+const appId = "7fa7fa6874ba48c782411455b017ab1e";
 const token = null; // for testing only
 
 function VideoCall({ channelName, onLeave }) {
   const client = useRTCClient();
   const { localMicrophoneTrack } = useLocalMicrophoneTrack();
   const { localCameraTrack } = useLocalCameraTrack();
-
+  console.log(channelName,"dhdhnn");
   useJoin(
     {
       appid: appId,
@@ -30,7 +30,6 @@ function VideoCall({ channelName, onLeave }) {
   usePublish([localMicrophoneTrack, localCameraTrack].filter(Boolean));
 
   const remoteUsers = useRemoteUsers();
-
   // CSS
   const styles = {
     container: {
@@ -121,9 +120,9 @@ function VideoCall({ channelName, onLeave }) {
         </button>
       </div>
       <div style={styles.videoGrid}>
-        {/* Local video */}
+        {/* Host video */}
         <div style={styles.card}>
-          <div style={styles.badge}>You</div>
+          <div style={{ ...styles.badge, background: "#2d84f7" }}>Host</div>
           <div style={styles.video}>
             <LocalUser
               audioTrack={localMicrophoneTrack}
@@ -154,3 +153,4 @@ function VideoCall({ channelName, onLeave }) {
 }
 
 export default VideoCall;
+
