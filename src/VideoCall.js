@@ -30,6 +30,7 @@ function VideoCall({ channelName, onLeave }) {
   usePublish([localMicrophoneTrack, localCameraTrack].filter(Boolean));
 
   const remoteUsers = useRemoteUsers();
+  console.log("Remote users:", remoteUsers);
   // CSS
   const styles = {
     container: {
