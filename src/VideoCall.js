@@ -18,7 +18,7 @@ function VideoCall({ channelName, onLeave }) {
   const client = useRTCClient();
   const { localMicrophoneTrack } = useLocalMicrophoneTrack();
   const { localCameraTrack } = useLocalCameraTrack();
-  console.log(channelName,"dhdhnn");
+  console.log(channelName,appId,token,"dhdhnn");
   useJoin(
     {
       appid: appId,
